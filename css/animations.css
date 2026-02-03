@@ -1,0 +1,298 @@
+/* ===================================
+   ANIMATIONS & TRANSITIONS
+   =================================== */
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Subtle Pulse */
+@keyframes subtlePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Underline Grow */
+@keyframes underlineGrow {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Micro Wiggle */
+@keyframes microWiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(1deg);
+    }
+
+    75% {
+        transform: rotate(-1deg);
+    }
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all var(--duration-slow) var(--ease-smooth);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Reveal */
+.reveal-stagger {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.reveal-stagger.active {
+    animation: fadeInUp var(--duration-slow) var(--ease-smooth) forwards;
+}
+
+.reveal-stagger:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.reveal-stagger:nth-child(2) {
+    animation-delay: 80ms;
+}
+
+.reveal-stagger:nth-child(3) {
+    animation-delay: 160ms;
+}
+
+.reveal-stagger:nth-child(4) {
+    animation-delay: 240ms;
+}
+
+.reveal-stagger:nth-child(5) {
+    animation-delay: 320ms;
+}
+
+.reveal-stagger:nth-child(6) {
+    animation-delay: 400ms;
+}
+
+.reveal-stagger:nth-child(7) {
+    animation-delay: 480ms;
+}
+
+.reveal-stagger:nth-child(8) {
+    animation-delay: 560ms;
+}
+
+/* Hover Underline Effect */
+.hover-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-primary);
+    transition: width var(--duration-normal) var(--ease-smooth);
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* Playful Dot */
+.playful-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-warm);
+    border-radius: 50%;
+    margin-left: 6px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all var(--duration-normal) var(--ease-smooth);
+    vertical-align: middle;
+}
+
+.hero__title:hover .playful-dot {
+    opacity: 1;
+    transform: scale(1);
+    animation: subtlePulse 2s ease-in-out infinite;
+}
+
+/* Skill Card Accent Line */
+.card--skill {
+    position: relative;
+    overflow: hidden;
+}
+
+.card--skill::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-warm));
+    transition: width var(--duration-normal) var(--ease-smooth);
+}
+
+.card--skill:hover::before {
+    width: 100%;
+}
+
+/* Project Card Expand */
+.card--project {
+    cursor: pointer;
+}
+
+.card--project .card__details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--duration-slow) var(--ease-smooth);
+}
+
+.card--project:hover .card__details {
+    max-height: 200px;
+}
+
+/* Icon Hover Effects */
+.interest-item {
+    cursor: pointer;
+}
+
+.interest-item:hover .interest-icon {
+    animation: microWiggle var(--duration-normal) var(--ease-smooth);
+}
+
+/* Button Ripple Effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width var(--duration-slow) var(--ease-smooth),
+        height var(--duration-slow) var(--ease-smooth);
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Smooth Page Load */
+body {
+    animation: fadeIn var(--duration-slow) var(--ease-smooth);
+}
+
+/* Link Hover Effect */
+a:not(.btn) {
+    position: relative;
+}
+
+a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-warm);
+    transition: width var(--duration-fast) var(--ease-smooth);
+}
+
+a:not(.btn):hover::after {
+    width: 100%;
+}
+
+/* Tag Hover */
+.tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+    transition: left var(--duration-normal) var(--ease-smooth);
+}
+
+.tag:hover::before {
+    left: 100%;
+}
+
+/* Timeline Item Reveal */
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all var(--duration-slow) var(--ease-smooth);
+}
+
+.timeline-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

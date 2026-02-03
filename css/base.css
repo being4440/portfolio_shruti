@@ -1,0 +1,128 @@
+/* ===================================
+   RESET & BASE TYPOGRAPHY
+   =================================== */
+
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    line-height: var(--line-normal);
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: var(--line-tight);
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+}
+
+h1 {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-sm);
+}
+
+p {
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+}
+
+a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+a:hover {
+    color: var(--accent-warm);
+}
+
+/* Lists */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Images */
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Buttons */
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+/* Selection */
+::selection {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+/* Focus styles */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-soft);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
