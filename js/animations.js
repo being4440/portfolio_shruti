@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initHoverEffects();
   initSmoothScroll();
+  initChessNav();
 });
 
 /**
@@ -48,7 +49,7 @@ function initScrollAnimations() {
  */
 function initHoverEffects() {
   // Project cards expand on hover
-  const projectCards = document.querySelectorAll('.card--project');
+  const projectCards = document.querySelectorAll('.folded-card');
   projectCards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       card.style.transform = 'translateY(-6px)';
@@ -70,18 +71,6 @@ function initHoverEffects() {
     item.addEventListener('mouseleave', () => {
       const icon = item.querySelector('.interest-icon');
       icon.style.transform = 'rotate(0deg) scale(1)';
-    });
-  });
-
-  // Skill cards accent line animation
-  const skillCards = document.querySelectorAll('.card--skill');
-  skillCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.borderColor = 'var(--accent-primary)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.borderColor = 'transparent';
     });
   });
 }
@@ -152,4 +141,51 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('img[data-src]').forEach(img => {
     imageObserver.observe(img);
   });
+}
+
+/**
+ * Initialize chess navigation
+ */
+function initChessNav() {
+  const squares = document.querySelectorAll('.square');
+  const sections = document.querySelectorAll('section[id]');
+
+  // Scroll to section on square click
+  squares.forEach(square => {
+    square.addEventListener('click', () => {
+      const sectionId = square.dataset.section;
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const offsetTop = section.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Update active square on scroll
+  const navObserverOptions = {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  };
+
+  const navObserverCallback = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        squares.forEach(square => {
+          square.classList.remove('active');
+          if (square.dataset.section === id) {
+            square.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+
+  const navObserver = new IntersectionObserver(navObserverCallback, navObserverOptions);
+  sections.forEach(section => navObserver.observe(section));
 }

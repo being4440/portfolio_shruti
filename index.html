@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <!-- Stylesheets -->
@@ -29,10 +29,23 @@
 
 <body>
 
+    <!-- Chess Navigation -->
+    <nav class="chess-nav">
+        <div class="chessboard">
+            <div class="square active" data-section="hero">e2</div>
+            <div class="square" data-section="about">e4</div>
+            <div class="square" data-section="projects">d4</div>
+            <div class="square" data-section="skills">c2</div>
+            <div class="square" data-section="achievements">g8</div>
+            <div class="square" data-section="interests">h1</div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero__content reveal">
+                <div class="origami-king"></div>
                 <h1 class="hero__title">
                     Hi, I'm <strong>Shruti Awasthi</strong><span class="playful-dot"></span>
                 </h1>
@@ -75,15 +88,16 @@
             <div class="section-header reveal">
                 <h2 class="section-title">About</h2>
             </div>
-            <div class="reveal" style="max-width: 700px; margin: 0 auto;">
-                <p>
-                    I'm currently studying Information Technology at VESIT, Mumbai.
-                    My background in mathematics shapes how I think.
-                </p>
-                <p>
-                    I enjoy backend systems, algorithmic reasoning, and learning under strong technical mentorship.
-
-                </p>
+            <div class="about-layout reveal">
+                <div class="about-portrait">
+                    <div class="folded-paper"></div>
+                </div>
+                <div class="about-text">
+                    <p>Final-year Computer Engineering student</p>
+                    <p>Interested in algorithmic problem solving and interactive system design</p>
+                    <p>Experienced in building experimental web visualisations and analytical models</p>
+                    <p>Motivated by research-driven engineering challenges</p>
+                </div>
             </div>
         </div>
     </section>
@@ -94,63 +108,33 @@
             <div class="section-header reveal">
                 <h2 class="section-title">Skills</h2>
             </div>
-            <div class="grid grid--3">
-                <div class="card card--skill reveal-stagger">
-                    <h3 class="card__title">Programming</h3>
-                    <div class="card__tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">C</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Java</span>
-                    </div>
+            <div class="chess-timeline">
+                <div class="phase opening">
+                    <h3>Opening</h3>
+                    <p>Foundational computing</p>
+                    <ul>
+                        <li>C programming</li>
+                        <li>Data Structures</li>
+                        <li>Operating Systems</li>
+                    </ul>
                 </div>
-
-                <div class="card card--skill reveal-stagger">
-                    <h3 class="card__title">Core CS</h3>
-                    <div class="card__tags">
-                        <span class="tag">Data Structures</span>
-                        <span class="tag">Algorithms</span>
-                        <span class="tag">OOP</span>
-                        <span class="tag">OS</span>
-                    </div>
+                <div class="phase middlegame">
+                    <h3>Middlegame</h3>
+                    <p>Applied engineering</p>
+                    <ul>
+                        <li>Web Development</li>
+                        <li>Machine Learning</li>
+                        <li>Data Visualisation</li>
+                    </ul>
                 </div>
-
-                <div class="card card--skill reveal-stagger">
-                    <h3 class="card__title">Backend</h3>
-                    <div class="card__tags">
-                        <span class="tag">Flask</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">REST APIs</span>
-                    </div>
-                </div>
-
-                <div class="card card--skill reveal-stagger">
-                    <h3 class="card__title">ML & Data</h3>
-                    <div class="card__tags">
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">Scikit-learn</span>
-                    </div>
-                </div>
-
-                <div class="card card--skill reveal-stagger">
-                    <h3 class="card__title">Databases</h3>
-                    <div class="card__tags">
-                        <span class="tag">MySQL</span>
-                        <span class="tag">SQLite</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </div>
-
-                <div class="card card--skill reveal-stagger">
-                    <h3 class="card__title">Tools</h3>
-                    <div class="card__tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">GitHub</span>
-                        <span class="tag">VS Code</span>
-                        <span class="tag">Linux</span>
-                    </div>
+                <div class="phase endgame">
+                    <h3>Endgame</h3>
+                    <p>Strategic depth</p>
+                    <ul>
+                        <li>Algorithm optimisation</li>
+                        <li>System design thinking</li>
+                        <li>Research documentation</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -164,7 +148,7 @@
             </div>
             <div class="grid grid--2">
 
-                <div class="card card--project reveal-stagger">
+                <div class="card card--project reveal-stagger folded-card">
                     <h3 class="card__title hover-underline">ServiceTrack</h3>
                     <p class="card__description">
                         A role-based society repair management system designed around explicit state transitions and
@@ -178,7 +162,7 @@
                     </div>
                 </div>
 
-                <div class="card card--project reveal-stagger">
+                <div class="card card--project reveal-stagger folded-card">
                     <h3 class="card__title hover-underline">UpCycle Connect</h3>
                     <p class="card__description">
                         A hyper-local exchange platform connecting surplus materials with innovators through structured
@@ -192,7 +176,7 @@
                     </div>
                 </div>
 
-                <div class="card card--project reveal-stagger">
+                <div class="card card--project reveal-stagger folded-card">
                     <h3 class="card__title hover-underline">Tower of Hanoi (C + WASM)</h3>
                     <p class="card__description">
                         A low-level exploration of recursion, time complexity, and browser-based visualization using C
@@ -206,7 +190,7 @@
                     </div>
                 </div>
 
-                <div class="card card--project reveal-stagger">
+                <div class="card card--project reveal-stagger folded-card">
                     <h3 class="card__title hover-underline"> Eternal Kaleidoscope</h3>
                     <p class="card__description">
                         Interactive browser-based 3D kaleidoscope visualisation with hover expansion, gallery navigation, music controls, and smooth state-driven animations built using pure frontend stack and Three.js.
@@ -221,7 +205,7 @@
                     </div>
                 </div>
 
-                <div class="card card--project reveal-stagger">
+                <div class="card card--project reveal-stagger folded-card">
                     <h3 class="card__title hover-underline"> Data-Driven Drought Classification</h3>
                     <p class="card__description">
                         Python-based analytical tool that computes a weighted rainfall index and percentile-driven thresholds to classify drought severity across Indian meteorological subdivisions using historical climate data.
