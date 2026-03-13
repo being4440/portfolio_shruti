@@ -1,6 +1,7 @@
 # Portfolio – Shruti
 
 A simple Web Dev Lab portfolio website built using **HTML, CSS, and JavaScript**.
+Deployed link - https://being4440.github.io/portfolio_shruti/
 
 ## 📂 Project Structure
 - `index.html` – Main webpage
