@@ -97,47 +97,6 @@ button {
     transition: all var(--duration-fast) var(--ease-smooth);
 }
 
-.change-btn {
-    background-color: yellow;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 500;
-}
-
-.change-btn.clicked {
-    background-color: #90EE90; /* pastel green */
-}
-
-.add-btn {
-    background-color: lightblue;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-.remove-btn {
-    background-color: #FFB6C1;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-#dynamic-list {
-    margin: 10px 0;
-    padding-left: 20px;
-}
-
-#dynamic-list li {
-    margin-bottom: 5px;
-    color: var(--text-secondary);
-}
-
 .bg-btn {
     width: 40px;
     height: 40px;

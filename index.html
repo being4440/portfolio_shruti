@@ -76,7 +76,7 @@
                 <h2 class="section-title">About</h2>
             </div>
             <div class="reveal" style="max-width: 700px; margin: 0 auto;">
-                <p id="demo-para">
+                <p>
                     I'm currently studying Information Technology at VESIT, Mumbai.
                     My background in mathematics shapes how I think.
                 </p>
@@ -84,10 +84,6 @@
                     I enjoy backend systems, algorithmic reasoning, and learning under strong technical mentorship.
 
                 </p>
-                <button id="change-text-btn" class="change-btn">Change Text</button>
-                <ul id="dynamic-list"></ul>
-                <button id="add-item-btn" class="add-btn">Add Item</button>
-                <button id="remove-item-btn" class="remove-btn">Remove Last Item</button>
                 <div style="margin-top: 20px;">
                     <p style="margin-bottom: 10px; font-weight: 500;">Change Background Color:</p>
                     <button id="bg-pink" class="bg-btn bg-pink"></button>
@@ -327,32 +323,6 @@
     <script src="js/theme.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const changeButton = document.getElementById('change-text-btn');
-            const paragraph = document.getElementById('demo-para');
-            const addButton = document.getElementById('add-item-btn');
-            const list = document.getElementById('dynamic-list');
-            let itemCount = 0;
-            
-            changeButton.addEventListener('click', () => {
-                paragraph.textContent = 'The text has been changed!';
-                changeButton.classList.add('clicked');
-            });
-
-            addButton.addEventListener('click', () => {
-                itemCount++;
-                const newItem = document.createElement('li');
-                newItem.textContent = `Item ${itemCount}`;
-                list.appendChild(newItem);
-            });
-
-            const removeButton = document.getElementById('remove-item-btn');
-            removeButton.addEventListener('click', () => {
-                const listItems = list.querySelectorAll('li');
-                if (listItems.length > 0) {
-                    list.removeChild(listItems[listItems.length - 1]);
-                }
-            });
-
             const bgPinkBtn = document.getElementById('bg-pink');
             const bgBlueBtn = document.getElementById('bg-blue');
             const bgYellowBtn = document.getElementById('bg-yellow');
